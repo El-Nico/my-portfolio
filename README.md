@@ -1,5 +1,5 @@
 # Nicholas Chibuike-Eruba portfolio
-# portfolio-9f16d.firebaseapp.com
+# portfolio-9f16d.firebaseapp.com, https://nicholas-eruba.com/
 # 18630
 # Idea Behind Designs
 The website is designed to be minimalistic and simple while following mordern trends,
