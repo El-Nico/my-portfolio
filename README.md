@@ -6,7 +6,9 @@ The website is designed to be minimalistic and simple while following mordern tr
 # 
 # 
 # Initial Ideas
-I wanted to include a blog containing details of each project from my work section, and myInsta, like a personal gallery section but that will come later 
+I wanted to include a blog containing details of each project from my work section, and myInsta, like a personal gallery section but that will come later
+
+I also wanted to add in angular but later
 # 
 # 
 # Problems Occured/Solutions
