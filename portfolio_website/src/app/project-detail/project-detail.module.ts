@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { WorkPageRoutingModule } from './work-routing.module';
+import { ProjectDetailPageRoutingModule } from './project-detail-routing.module';
 
-import { WorkPage } from './work.page';
+import { ProjectDetailPage } from './project-detail.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    WorkPageRoutingModule
+    ProjectDetailPageRoutingModule
   ],
-  declarations: [WorkPage]
+  declarations: [ProjectDetailPage]
 })
-export class WorkPageModule {}
+export class ProjectDetailPageModule {}

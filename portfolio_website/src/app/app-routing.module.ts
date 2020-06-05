@@ -12,20 +12,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'home-about-work-contact',
-    loadChildren: () => import('./home-about-work-contact/home-about-work-contact.module').then( m => m.HomeAboutWorkContactPageModule)
-  },
-  {
-    path: 'about',
-    loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
-  },
-  {
-    path: 'work',
-    loadChildren: () => import('./work/work.module').then( m => m.WorkPageModule)
-  },
-  {
-    path: 'contact',
-    loadChildren: () => import('./contact/contact.module').then( m => m.ContactPageModule)
+    path: 'project-detail',
+    loadChildren: () => import('./project-detail/project-detail.module').then( m => m.ProjectDetailPageModule)
   },
 ];
 
