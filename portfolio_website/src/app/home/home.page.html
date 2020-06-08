@@ -13,7 +13,7 @@
                 </nav>
                 <div class="header-content">
                     <h1>
-                        I Am Nicholas The
+                        I Am Nicholas The {{currentText}}
                         <span data-words='[" Web Developer" ," Mobile developer"
                             ," UI/UXDev" ]' class="txt-type" data-wait="3000">
                         </span>
@@ -222,18 +222,18 @@
                     Check out some of my projects
                 </p>
                 <div class="items">
-                    <div class="item">
+                    <div class="item" *ngFor="let workItem of workItems" (click)="goToDetail(workItem.snapshotId)">
                         <div class="item-image">
-                            <img src="img/item1.png" alt="" />
+                            <img [src]="workItem.imgUrl" alt="" />
                         </div>
                         <div class="item-text">
                             <div class="item-text-wrap">
-                                <p class="item-text-category">Fullstack CRUD</p>
-                                <h2 class="item-text-title">Coolmine footballers</h2>
+                                <p class="item-text-category">{{workItem.category}}</p>
+                                <h2 class="item-text-title">{{workItem.title}}</h2>
                             </div>
                         </div>
                     </div>
-                    <div class="item">
+                    <!-- <div class="item">
                         <div class="item-image">
                             <img src="img/item2.png" alt="" />
                         </div>
@@ -255,7 +255,7 @@
                                 <h2 class="item-text-title">Nico loso</h2>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <a href="https://github.com/El-Nico" target="_blank" class="btn-light">Github: https://github.com/El-Nico</a>

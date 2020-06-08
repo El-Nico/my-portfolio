@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "portfolio-9f16d": {
+      "hosting": {
+        "app": [
+          "portfolio-9f16d"
+        ]
+      }
+    }
+  }
+}
