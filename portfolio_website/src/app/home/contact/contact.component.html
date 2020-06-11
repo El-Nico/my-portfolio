@@ -1,0 +1,36 @@
+<div id="Contact" class="container">
+    <!-- Header
+  <header id="header-inner">
+      <div class="container">
+          <nav id="main-nav">
+              <img src="img/logo.png" alt="My Portfolio" id="logo" />
+              <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="work.html">Work</a></li>
+                  <li><a href="contact.html" class="current">Contact</a></li>
+              </ul>
+          </nav>
+      </div>
+  </header> -->
+    <!-- Section A: Contact Form -->
+    <section id="contact-a" class="text-center py-3">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="bottom-line"></div>
+            <p class="lead">Here is how you can reach me</p>
+            <form>
+                <div class="text-fields">
+                    <input [(ngModel)]="contactModel.name" type="text" class="text-input name-input" placeholder="Name" name="name" />
+                    <input [(ngModel)]="contactModel.subject" type="text" class="text-input subject-input" placeholder="Subject" name="subject" />
+                    <input [(ngModel)]="contactModel.email" type="email" class="text-input email-input" placeholder="Email Address" name="email" />
+                    <input [(ngModel)]="contactModel.phoneNumber" type="text" class="text-input phone-input" placeholder="Phone
+                      Number" name="phone" />
+                    <textarea [(ngModel)]="contactModel.message" class="text-input message-input" placeholder="Enter
+                      Message" name="message"></textarea>
+                </div>
+                <button type="submit" class="btn-dark" (click)="onSubmit()">Submit</button>
+            </form>
+        </div>
+    </section>
+</div>

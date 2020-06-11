@@ -6,12 +6,7 @@ import { Router } from '@angular/router';
 
 
 
-interface WorkItem {
-  category:string;
-  title: string;
-  imgurl: string;
-  snapshotId?: string;
-}
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -19,10 +14,9 @@ interface WorkItem {
 })
 export class HomePage implements OnInit{
 
- workCollection: AngularFirestoreCollection<WorkItem>;
- workItemsObservable: Observable<WorkItem[]>;
- workItems: WorkItem[];
+ 
 
+ //typewriter effect
  words: string[]=[" Web Developer" ," Mobile developer"," UI/UXDev" ];
  currentText="";
 
@@ -30,16 +24,20 @@ export class HomePage implements OnInit{
     private afs: AngularFirestore,
     private router: Router
   ) {
-    this.workItemsObservable =this.afs.collection('work-items').snapshotChanges()
-     .pipe(map(changes => {
-      return changes.map(a => {
-        const data = a.payload.doc.data() as WorkItem;
-        data.snapshotId = a.payload.doc.id;
-        return data;
-      });
-    }));
+    
   }
 
+  ngOnInit(): void {
+    this.typeWriter("",3000,0, false);
+  }
+
+  toSection(sectionId){
+    let x = document.querySelector(sectionId);
+    if(x){
+      x.scrollIntoView();
+    }
+  }
+  
   typeWriter(ctext, wait, _wordIndex, _isDeleting){
     var TxtElementTxt="";
     var wordIndex=_wordIndex;
@@ -87,22 +85,13 @@ export class HomePage implements OnInit{
       typeSpeed = 500;
     }
 
-    console.log(TxtElementTxt +" "+ typeSpeed);
+    //console.log(TxtElementTxt +" "+ typeSpeed);
     this.currentText=TxtElementTxt;
     setTimeout(()=>{
       this.typeWriter(txt, typeSpeed, wordIndex, isDeleting)
     }, typeSpeed);
   }
 
-  goToDetail(snapshotId){
-    this.router.navigateByUrl(`project-detail/${snapshotId}`);
-    console.log(snapshotId);
-  }
-  ngOnInit(): void {
-    this.workItemsObservable.subscribe(workItems=>{
-      this.workItems=workItems;
-    })
-
-    this.typeWriter("",3000,0, false);
-  }
+  
+  
 }

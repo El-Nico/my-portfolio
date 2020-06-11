@@ -1,0 +1,40 @@
+<div id="Work" class="container">
+    <!-- Header
+  <header id="header-inner">
+      <div class="container">
+          <nav id="main-nav">
+              <img src="img/logo.png" alt="My Portfolio" id="logo" />
+              <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="work.html" class="current">Work</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+              </ul>
+          </nav>
+      </div>
+  </header> -->
+    <!-- Section A: Gallery -->
+    <section id="work-a" class="text-center py-3">
+        <div class="container">
+            <h2 class="section-title">My Work</h2>
+            <div class="bottom-line"></div>
+            <p class="lead">
+                Check out some of my projects (click goes to git repo of the project)
+            </p>
+            <div class="items">
+                <div class="item" *ngFor="let workItem of workItems" (click)="goToDetail(workItem)">
+                    <div class="item-image">
+                        <img [src]="workItem.imgUrl" alt="" />
+                    </div>
+                    <div class="item-text">
+                        <div class="item-text-wrap">
+                            <p class="item-text-category">{{workItem.category}}</p>
+                            <h2 class="item-text-title">{{workItem.title}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://github.com/El-Nico" target="_blank" class="btn-light">Github: https://github.com/El-Nico</a>
+    </section>
+</div>

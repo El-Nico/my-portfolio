@@ -42,6 +42,10 @@ $bg-image: url('./img/showcase.jpg');
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Dosis', sans-serif;
     line-height: 1.6;
