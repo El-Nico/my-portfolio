@@ -68,7 +68,7 @@ $bg-image: url('../../assets/img/showcase.jpg');
         top: 0;
         left: 0;
         width: 100%;
-        height: auto;
+        min-height: 100%;
         line-height: 0;
     }
     &-text {

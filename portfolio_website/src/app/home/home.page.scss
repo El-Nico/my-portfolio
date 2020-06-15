@@ -1,5 +1,4 @@
 @import '../../theme/my-variables';
-@import '../../theme/item_grid';
 @import '../../theme/utilities';
 //maincontent container
 #content {
@@ -34,13 +33,16 @@
     line-height: 50px;
     color: white;
     font-size: 22px;
+    z-index: 5;
 }
 
 // Main Nav
 #main-nav {
+    z-index: 1;
     display: flex;
     justify-content: space-between;
     padding-top: 1rem;
+    position: relative;
     //position: fixed;
     ul {
         display: flex;
@@ -72,10 +74,13 @@
         background: $bg-image no-repeat center top / cover;
         height: 100vh;
         color: #fff;
+        position: relative;
         // Header Content
         .header-content {
+            position: relative;
             text-align: center;
             padding-top: 20%;
+            z-index: 3;
             h1 {
                 font-size: 4rem;
                 line-height: 1.2;
@@ -87,6 +92,16 @@
         background: $bg-image no-repeat 20% 30% / cover;
         height: 5.5rem;
         border-bottom: 3px solid $main-color;
+    }
+    &-home::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1;
     }
 }
 

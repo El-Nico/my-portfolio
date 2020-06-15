@@ -1,19 +1,33 @@
-# Nicholas Chibuike-Eruba portfolio
-# portfolio-9f16d.firebaseapp.com, https://nicholas-eruba.com/
-# 18630
-# Idea Behind Designs
-The website is designed to be minimalistic and simple while following mordern trends,
-# 
-# 
-# Initial Ideas
-I wanted to include a blog containing details of each project from my work section, and myInsta, like a personal gallery section but that will come later
+<!-- Heading -->
+# MY PORTFOLIO
 
-I also wanted to add in angular but later
-# 
-# 
-# Problems Occured/Solutions
-------1. It was very difficult to find a free website to make logos, or a free editing software to make one
-------------Solution, I eventually found one at
-https://logomaker.thehoth.com/#
+<!-- title details -->
+## Title Details
+| Title             | Category        | Website URL                     |
+| ----------------- | --------------  |---------------------------------|
+| Portfolio Website | Frontend Design | https://nicholas-eruba.com/home |
 
---------2.
+## Description
+This is my portfolio website, it is intended as an online resume, gives a short description of my approach to programming, about me, highlight some of my projects and provide a means to contact me
+
+## Key Functionalities
+1. Work items displayed dynamically from firestore database
+1. Typewriter effect with set timeout and string interpolation
+1. contact form submission to email with firebase cloud functions
+
+
+## Technologies Used
+### **FrontEnd**
+#### Framework
+Angular9, Ionic
+#### Markup
+HTML, Font Awesome, Google fonts
+
+### **BackEnd**
+Firebase Firestore, Firebase Cloud Functions
+
+### **Programming Languages**
+TypeScript, Javascript
+
+### **Version Control**
+Git, GitHub
