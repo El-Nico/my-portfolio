@@ -24,7 +24,7 @@ Angular9, Ionic
 HTML, Font Awesome, Google fonts
 
 ### **BackEnd**
-Firebase Firestore, Firebase Cloud Functions
+Firebase Firestore, Firebase Cloud Functions, Firebase Hosting
 
 ### **Programming Languages**
 TypeScript, Javascript
