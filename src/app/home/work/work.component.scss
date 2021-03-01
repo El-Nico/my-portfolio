@@ -1,0 +1,19 @@
+@import '../../../theme/my-variables';
+@import '../../../theme/item_grid';
+@import '../../../theme/utilities';
+// Import Media Queries
+#Work {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.actions {
+    margin: 10px;
+    a {
+        margin-left: 2px;
+    }
+}
+
+@import '../../../theme/media';
