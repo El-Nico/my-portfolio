@@ -3,13 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 
-interface WorkItem {
+export interface WorkItem {
   category: string;
   title: string;
-  imgurl: string;
+  imgUrl: string;
   githubUrl: string;
   snapshotId?: string;
 }
@@ -30,7 +30,7 @@ export class WorkComponent implements OnInit {
   ) {
     this.workItemsObservable = this.afs.collection('work-items').snapshotChanges()
       .pipe(map(changes => {
-        return changes.map(a => {
+        return changes.map((a:any) => {
           const data = a.payload.doc.data() as WorkItem;
           data.snapshotId = a.payload.doc.id;
           return data;

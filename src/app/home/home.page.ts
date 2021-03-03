@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-import {map} from 'rxjs/operators';
+// import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+// import { Observable } from 'rxjs';
+// import {map} from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 
@@ -21,7 +21,7 @@ export class HomePage implements OnInit{
  currentText="";
 
   constructor(
-    private afs: AngularFirestore,
+    // private afs: AngularFirestore,
     private router: Router
   ) {
     

@@ -1,0 +1,77 @@
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" id="navId">
+    <li class="nav-item">
+        <a class="nav-link active">Hello, Admin</a>
+    </li>
+    <li class="nav-item">
+        <a (click)="logOut()" class="nav-link">Log Out</a>
+    </li>
+</ul>
+
+<div class="alert notify alert-success" *ngIf="notify" role="alert">
+    {{notify}}
+</div>
+
+<div class="container h-100 d-flex align-items-center">
+    <div class="card w-100">
+        <div class="row">
+            <div class="col-12 py-2 d-flex align-items-center
+                justify-content-around" *ngIf="!editMode;else editAction">
+                <p class="mb-0 font-weight-bold">Work Collections</p>
+                <p class="mb-0 font-weight-bold cursor-pointer" (click)="addNewWork()">+</p>
+            </div>
+            <div class="col-12 d-flex justify-content-center py-3">
+                <table class="table" *ngIf="!editMode;else WorkForm">
+                    <thead>
+                        <tr>
+                            <th>Work Title</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of workItems;let i=index" (click)="editItem(i)">
+                            <td scope="row" class="cursor-pencil">{{item.title}}</td>
+                            <td class="action-pencil">&#9998;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #editAction>
+    <div class="col-12 py-2 d-flex align-items-center justify-content-between
+        px-4">
+        <p class="mb-0 cursor-pointer" (click)="goBack()" style="font-size:
+            35px;">&#xab;</p>
+        <span>
+            <button type="button" [disabled]="imgUpload" (click)="saveItem()"
+                class="btn btn-primary mr-3"> Save </button>
+            <button type="button" (click)="deleteItem()" class="btn btn-danger">
+                Delete </button>
+        </span>
+    </div>
+</ng-template>
+
+<ng-template #WorkForm>
+    <form [formGroup]="formGroup" class="w-50">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" name="title" class="form-control" placeholder="Enter Title" formControlName="title">
+        </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" name="category" class="form-control" placeholder="Enter Category" formControlName="category">
+        </div>
+        <div class="form-group">
+            <label for="image">Image Url</label>
+            <input *ngIf="!formGroup.value['imgUrl']" type="file" id="file" class="form-control" (change)="onFileSelected($event)" name="image" autocomplete="off" />
+            <input *ngIf="formGroup.value['imgUrl']" type="text" id="file" class="form-control" name="image" formControlName="imgUrl" autocomplete="off" readonly />
+        </div>
+        <div class="form-group">
+            <label for="github">GitHub Url</label>
+            <input type="text" name="github" class="form-control" placeholder="Enter Github Url" formControlName="githubUrl">
+        </div>
+    </form>
+</ng-template>

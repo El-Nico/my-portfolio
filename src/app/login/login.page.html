@@ -1,46 +1,54 @@
 <ion-content>
     <!-- <ion-icon name="eye-outline"></ion-icon> -->
     <!-- forgot your passsw -->
-    <form [formGroup]="form">
-        <ion-grid>
-            <ion-row>
-                <ion-col size-sm="6" offset-sm="3">
-                    <ion-list>
-                        <ion-item>
-                            <ion-label position="floating">E-Mail</ion-label>
-                            <ion-input type="email" formControlName="email"></ion-input>
-                        </ion-item>
-                        <ion-item *ngIf="!form.get('email').valid && form.get('email').touched" lines="none">
-                            <ion-label>
-                                Should be a valid email address.
-                            </ion-label>
-                        </ion-item>
-                        <ion-item>
-                            <ion-label position="floating">Password</ion-label>
-                            <ion-input type="password" formControlName="password"></ion-input>
-                        </ion-item>
-                        <ion-item *ngIf="form.get('password').valid && form.get('password').touched" lines="none">
-                            <ion-label>
-                                Should at least be 6 characters long.
-                            </ion-label>
-                        </ion-item>
-                    </ion-list>
-                </ion-col>
-            </ion-row>
-            <ion-row>
-                <ion-col size-sm="6" offset-sm="3">
-                    <ion-button (click)="onSubmit()" color="primary" expand="block" [disabled]="!form.valid">
-                        Login
-                    </ion-button>
-                </ion-col>
-            </ion-row>
-            <!-- <ion-row>
-                <ion-col size-sm="6" offset-sm="3" class="ion-margin-top">
-                    <ion-button color="secondary" expand="block" (click)="logout()">
-                        LOGOUT
-                    </ion-button>
-                </ion-col>
-            </ion-row> -->
-        </ion-grid>
-    </form>
+    <div class="container w-100 h-100 d-flex align-items-center justify-content-center">
+
+        <form [formGroup]="form" class="w-50 ng-pristine card p-4 shadow rounded-lg">
+            <div class="row d-flex justify-content-center">
+                <div *ngIf="loginSpinner" class="spinner-border text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <ion-list>
+                            <ion-item>
+                                <ion-label position="floating">E-Mail</ion-label>
+                                <ion-input type="email" formControlName="email"></ion-input>
+                            </ion-item>
+                            <ion-item lines="none">
+                                <ion-label *ngIf="!form.get('email').valid && form.get('email').touched" class="text-danger">
+                                    Should be a valid email address.
+                                </ion-label>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label position="floating">Password</ion-label>
+                                <ion-input type="password" formControlName="password"></ion-input>
+                            </ion-item>
+                            <ion-item lines="none">
+                                <ion-label *ngIf="form.get('password').valid && form.get('password').touched" class="text-danger">
+                                    Should at least be 6 characters long.
+                                </ion-label>
+                            </ion-item>
+                        </ion-list>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size-sm="6" offset-sm="3">
+                        <ion-button (click)="signIn()" color="primary" expand="block" [disabled]="!form.valid">
+                            Login
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+                <!-- <ion-row>
+                    <ion-col size-sm="6" offset-sm="3" class="ion-margin-top">
+                        <ion-button color="secondary" expand="block" (click)="logout()">
+                            LOGOUT
+                        </ion-button>
+                    </ion-col>
+                </ion-row> -->
+            </ion-grid>
+        </form>
+    </div>
 </ion-content>

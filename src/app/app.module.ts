@@ -8,10 +8,21 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import {AngularFirestoreModule} from 'angularfire2/firestore';
+import {AngularFirestore, AngularFirestoreModule} from 'angularfire2/firestore';
 import { environment } from 'src/environments/environment';
 import * as firebase from 'firebase';
 import { AngularFireModule } from '@angular/fire';
+import { BehaviorSubject } from 'rxjs';
+import { CommonModule } from '@angular/common';
+
+const FirestoreStub = {
+  collection: (name: string) => ({
+    doc: (_id: string) => ({
+      valueChanges: () => new BehaviorSubject({ foo: 'bar' }),
+      set: (_d: any) => new Promise<void>((resolve, _reject) => resolve()),
+    }),
+  }),
+};
 
 
 
@@ -21,6 +32,7 @@ firebase.initializeApp(environment.firebaseConfig);
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
+    CommonModule,
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
@@ -30,6 +42,7 @@ firebase.initializeApp(environment.firebaseConfig);
   providers: [
     StatusBar,
     SplashScreen,
+    { provide: AngularFirestore, useValue: FirestoreStub },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
