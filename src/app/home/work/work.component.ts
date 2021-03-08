@@ -9,9 +9,13 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 export interface WorkItem {
   category: string;
   title: string;
-  imgUrl: string;
+  imgUrl: string | [];
   githubUrl: string;
   snapshotId?: string;
+  techs?: [],
+  features?: [],
+  description?: string,
+  siteUrl?: string
 }
 @Component({
   selector: 'app-work',
@@ -45,12 +49,13 @@ export class WorkComponent implements OnInit {
   }
 
   goToDetail(item) {
-    console.log(item.githubUrl)
-    var win = window.open(item.githubUrl, '_blank');
-    win.focus();
-    //this.router.navigateByUrl(item.githubUrl);
-    // this.router.navigateByUrl(`project-detail/${snapshotId}`);
-    // console.log(snapshotId);
+    // console.log(item.githubUrl)
+    // var win = window.open(item.githubUrl, '_blank');
+    // win.focus();
+    // //this.router.navigateByUrl(item.githubUrl);
+    // // this.router.navigateByUrl(`project-detail/${snapshotId}`);
+    // // console.log(snapshotId);
+    this.router.navigateByUrl(`project-detail/${item.snapshotId}`);
   }
 
 }

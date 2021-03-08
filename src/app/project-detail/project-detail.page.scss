@@ -1,12 +1,23 @@
 @import '../../theme/my-variables';
 @import '../../theme/item_grid';
 @import '../../theme/utilities';
+@import '../../theme/media';
+@import '../../global.scss';
 //Header
 // Header Inner
 #header-inner {
-    background: $bg-image no-repeat 20% 30% / cover;
-    height: 5.5rem;
-    border-bottom: 3px solid $main-color;
+    // background: url('../../assets/img/showcase.jpg') no-repeat 20% 30% / cover;
+    // height: 5.5rem;
+    // border-bottom: 3px solid $main-color;
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    background-color: #e8d9d900;
+    height: 4.5rem;
+}
+
+.smooth-transition {
+    transition: all 0.5s;
 }
 
 // Logo
@@ -71,5 +82,194 @@
     }
 }
 
-// Import Media Queries
-@import '../../theme/media';
+// // Import Media Queries
+// @import '../../theme/media';
+.work-detail-head {
+    position: relative;
+    background-color: $main-color;
+    height: 70vh;
+    padding: 0px 21%;
+}
+
+@media only screen and (min-width: 1024px) {
+    h1 {
+        letter-spacing: -0.011em;
+        font-size: 50px;
+        line-height: 56px;
+        color: rgba(41, 41, 41, 1);
+        font-weight: 900;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .section-text {
+        font-size: 18px!important;
+    }
+    .section-heading {
+        font-size: 20px!important;
+        line-height: 30px!important;
+        text-align: center!important;
+        width: 100%!important;
+    }
+    .work-detail-card {
+        top: -55px!important;
+    }
+    .specials {
+        grid-template-columns: repeat(1, 1fr)!important;
+    }
+    h5 {
+        font-size: 18px!important;
+    }
+    .work-detail-head {
+        padding-top: 148px!important;
+        padding-left: 0px!important;
+        padding-right: 0px!important;
+    }
+    .mobile-title {
+        align-items: center;
+        text-align: center;
+    }
+    .cover-img {
+        height: 190px!important;
+    }
+}
+
+.work-detail-card {
+    top: -80px
+}
+
+.cover-img {
+    border-radius: 10px;
+    border-bottom-left-radius: 0px;
+    width: 100%;
+    height: 316px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.btn-dark {
+    border: 1px solid transparent;
+    &:hover {
+        border: 1px solid #333;
+        color: #333;
+        text-decoration: none;
+    }
+}
+
+.section-heading {
+    letter-spacing: -0.011em;
+    font-size: 35px;
+    line-height: 56px;
+    color: rgba(41, 41, 41, 1);
+    font-weight: 900;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    border: 1px solid #333;
+    background-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    transition: all 1s;
+    cursor: pointer;
+}
+
+.active-dot {
+    background-color: #333;
+}
+
+.detail-padding {
+    padding: 5% 15%;
+}
+
+.section-text {
+    letter-spacing: -0.003em;
+    line-height: 32px;
+    word-break: break-word;
+    font-size: 21px;
+    font-weight: 400;
+}
+
+.circle-list {
+    list-style-type: square;
+}
+
+.blur-bg {
+    filter: blur(3px);
+}
+
+#logo nav {
+    transition: all 1s;
+}
+
+.after-scroll-header {
+    height: 50px;
+    nav {
+        padding: 0px!important;
+    }
+    #logo {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.current {
+    border-color: $dark-color!important;
+}
+
+.line-box {
+    position: relative;
+    transform: rotate( 269deg);
+    bottom: 106px;
+    left: -84px;
+    a:hover {
+        color: $main-color!important;
+    }
+    &::after {
+        display: flex;
+        content: "";
+        border-top: 2px solid #333;
+        width: 6rem;
+        margin: 2px 4rem;
+        transform: translateY(-1em);
+    }
+}
+
+.progress {
+    overflow: hidden;
+    height: 2px;
+    background: transparent;
+    border-radius: 5px;
+    margin-bottom: 0.6rem;
+    display: flex;
+    justify-content: center;
+    div {
+        height: 100%;
+        color: #fff;
+        text-align: center;
+        background: $main-color;
+    }
+}
+
+.specials {
+    display: grid;
+    align-items: center;
+    grid-gap: 1rem 2.6rem;
+    grid-template-columns: repeat(4, 1fr);
+    .fas {
+        color: $main-color;
+        padding-bottom: 0.4rem;
+    }
+}
+
+.icon-html {
+    font-size: 30px;
+    ion-icon,
+    i {
+        margin: 0px 20px!important;
+    }
+}
+
+.typescript-logo {}

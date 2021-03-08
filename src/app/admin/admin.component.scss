@@ -13,3 +13,9 @@
     right: 0px;
     top: 42px;
 }
+
+.custom-card {
+    max-height: 80vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}

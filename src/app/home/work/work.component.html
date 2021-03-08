@@ -24,7 +24,7 @@
             <div class="items">
                 <div class="item" *ngFor="let workItem of workItems" (click)="goToDetail(workItem)">
                     <div class="item-image">
-                        <img [src]="workItem.imgUrl" alt="workItem.title" />
+                        <img [src]="workItem.imgUrl[0].url" alt="workItem.title" />
                     </div>
                     <div class="item-text">
                         <div class="item-text-wrap">

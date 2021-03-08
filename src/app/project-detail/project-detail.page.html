@@ -1,8 +1,12 @@
 <!-- Header -->
 <header id="header-inner">
-    <div class="container">
+    <!-- <div class="container">
         <nav id="main-nav">
-            <img src="../../assets/img/logo.png" alt="My Portfolio" id="logo" />
+            <img src="../../assets/img/logo.png" alt="My Portfolio" id="logo" /> -->
+    <div class="container-flex px-4 smooth-transition" [ngClass]="{'shadow
+        bg-primary after-scroll-header':onScrollBoolean}">
+        <nav id="main-nav" class="smooth-transition">
+            <a href="/"> <img src="../../assets/img/logo.png" alt="My Portfolio" id="logo" /></a>
             <ul>
                 <li><a href="index.html" class="current">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -13,22 +17,121 @@
     </div>
 </header>
 
-<div class="container">
-    <!-- title and desc -->
-    <section>
-        <!-- main title -->
-        <!-- meta -->
+<div class="container-fluid h-100 overflow-auto" #onScroll>
+    <div class="row" [ngClass]="{'blur-bg':!noBlur}">
+        <div class="col-12 work-detail-head d-flex" id="header-section">
+            <div class="container-sm d-md-flex align-items-center
+                justify-content-center px-md-5">
+                <div class="d-flex flex-column w-md-75 w-100">
+                    <span *ngFor="let img of projectDetail.imgUrl;let i= index">
+                        <div *ngIf="activeImgIndex===i" class="cover-img"
+                            [ngStyle]="{'background-image': 'url(' + img.url +
+                            ')' }">
+                        </div>
+                    </span>
+                    <div class="d-flex w-100 justify-content-center my-2">
+                        <span *ngFor="let item of projectDetail.imgUrl;let i=
+                            index" class="dot mx-2" [ngClass]="{'active-dot':activeImgIndex ===i}" (click)="activeDot(i)"></span>
+                    </div>
+                </div>
+                <div class="d-flex flex-column mobile-title">
+                    <h1>{{projectDetail.title}}</h1>
+                    <span class="text-dark">{{projectDetail.category}}</span>
+                    <div class="d-flex justify-content-start align-items-center
+                        w-md-75 pt-md-4">
+                        <a class="btn-dark smooth-transition" target="_blank" [href]="projectDetail.siteUrl">View
+                            Site</a>
+                        <a class="text-dark" target="_blank" [href]="projectDetail.githubUrl"><i
+                                class="fab fa-github ml-4" style="font-size:
+                                40px;"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 d-flex justify-content-center position-realtive
+            work-detail-card">
+            <div class="container">
+                <div class="card shadow pb-4">
+                    <div class="container-sm detail-padding">
+                        <section class="mb-5">
+                            <div class="w-100 text-center d-flex
+                                justify-content-center">
+                                <h3 class="section-heading mb-4 pb-2 w-50">Brief
+                                    <div class="progress">
+                                        <div style="width:11%"></div>
+                                    </div>
+                                </h3>
 
-        <!-- desc -->
-    </section>
-    <!-- catalog -->
-    <section>
+                            </div>
+                            <p class="section-text text-justify">{{projectDetail.description}}
+                            </p>
+                        </section>
+                        <section class="mb-5">
+                            <div class="w-100 text-left d-flex
+                                justify-content-center">
+                                <h3 class="section-heading mb-4 pb-2 w-75
+                                    text-center">Key Functionalities
+                                    <div class="progress">
+                                        <div style="width:11%"></div>
+                                    </div>
+                                </h3>
+                            </div>
+                            <div class="px-4">
+                                <ul class="circle-list text-justify">
+                                    <li *ngFor="let item of
+                                        projectDetail.features" class="section-text mb-2">
+                                        {{item.feature}}</li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="mb-5">
+                            <div class="w-100 text-center d-flex
+                                justify-content-center">
+                                <h3 class="section-heading mb-4 pb-2 w-75">Technologies Used
+                                    <div class="progress">
+                                        <div style="width:11%"></div>
+                                    </div>
+                                </h3>
+                            </div>
+                            <div class="specials">
+                                <div class="text-center sub-tech h-100 d-flex
+                                    flex-column justify-content-around" *ngFor="let items of projectDetail.techs;let
+                                    index= index">
+                                    <i *ngIf="items.type.toLowerCase().includes('front')" class="fas fa-store fa-2x"></i>
+                                    <i *ngIf="items.type.toLowerCase().includes('language')" class="fas fa-globe fa-2x"></i>
+                                    <i *ngIf="items.type.toLowerCase().includes('version')" class="fas fa-code-branch fa-2x"></i>
+                                    <i *ngIf="items.type.toLowerCase().includes('markup')" class="fas fa-code fa-2x"></i>
+                                    <i *ngIf="items.type.toLowerCase().includes('back')" class="fas fa-cookie-bite fa-2x"></i>
+                                    <h3>{{items.type}}</h3>
+                                    <p class="icon-html d-flex
+                                        justify-content-around
+                                        align-items-center" [tech]="items.tech" appIcon="{{items.iconHTML}}" [id]="'icon'+index"></p>
+                                </div>
+                            </div>
+                        </section>
 
-    </section>
+                    </div>
+                    <div class="row">
+                        <div class="line-box">
+                            <a target="_blank" [href]="projectDetail.githubUrl">
+                                <i class="fab fa-github mr-3" aria-hidden="true"></i>
+                            </a>
+                            <a target="_blank" [href]="projectDetail.siteUrl">
+                                <i class="fa fa-globe" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 
-<!-- footer -->
+
+
+<!-- footer
 <footer id="main-footer">
     <div class="footer-content container">
         <p>Copyright &copy; 2020. All Rights Reserved</p>
@@ -39,4 +142,4 @@
             <i class="fab fa-linkedin"></i>
         </div>
     </div>
-</footer>
+</footer> -->

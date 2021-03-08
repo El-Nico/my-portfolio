@@ -13,7 +13,7 @@
 </div>
 
 <div class="container h-100 d-flex align-items-center">
-    <div class="card w-100">
+    <div class="card custom-card w-100">
         <div class="row">
             <div class="col-12 py-2 d-flex align-items-center
                 justify-content-around" *ngIf="!editMode;else editAction">
@@ -65,13 +65,68 @@
             <input type="text" name="category" class="form-control" placeholder="Enter Category" formControlName="category">
         </div>
         <div class="form-group">
-            <label for="image">Image Url</label>
-            <input *ngIf="!formGroup.value['imgUrl']" type="file" id="file" class="form-control" (change)="onFileSelected($event)" name="image" autocomplete="off" />
-            <input *ngIf="formGroup.value['imgUrl']" type="text" id="file" class="form-control" name="image" formControlName="imgUrl" autocomplete="off" readonly />
+            <label for="image">Image
+                <i class="fa fa-plus cursor-pointer" (click)="addimgUrl()" aria-hidden="true"></i>
+              </label>
+            <div formArrayName="imgUrl">
+                <div *ngFor="let url of imgUrl.controls; let i=index">
+                    <div [formGroupName]="i">
+                        Url-{{i}} :
+                        <div class="d-flex align-items-center">
+                            <input type="file" id="file" (change)="onFileSelected($event,i)" name="image" class="w-50" autocomplete="off" />
+                            <input type="text" class="mr-3" formControlName="url">
+                            <i class="fa fa-trash cursor-pointer" (click)="removeImgUrl(i)" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="image">Technology
+                <i class="fa fa-plus cursor-pointer" (click)="addingtech()" aria-hidden="true"></i>
+              </label>
+            <div formArrayName="techs">
+                <div *ngFor="let tech of techs.controls; let i=index">
+                    <div class="py-2" [formGroupName]="i">
+                        tech-{{i}} :
+                        <div class="d-flex align-items-center">
+                            <input type="text" class="mr-3" placeholder="Enter tech type" formControlName="type">
+                            <input type="text" class="mr-3" placeholder="Enter tech" formControlName="tech">
+                            <input type="text" class="mr-3" placeholder="Enter icon html" formControlName="iconHTML">
+
+                            <i class="fa fa-trash cursor-pointer" (click)="removetech(i)" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="image">Features
+                <i class="fa fa-plus cursor-pointer" (click)="addingFeature()" aria-hidden="true"></i>
+              </label>
+            <div formArrayName="features">
+                <div *ngFor="let feature of features.controls; let i=index">
+                    <div class="py-2" [formGroupName]="i">
+                        Feature-{{i}} :
+                        <div class="d-flex align-items-center">
+                            <input type="text" class="mr-3" placeholder="Enter feature" formControlName="feature">
+                            <i class="fa fa-trash cursor-pointer" (click)="removeFeature(i)" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="form-group">
             <label for="github">GitHub Url</label>
             <input type="text" name="github" class="form-control" placeholder="Enter Github Url" formControlName="githubUrl">
+        </div>
+        <div class="form-group">
+            <label for="site">Site Url</label>
+            <input type="text" name="site" class="form-control" placeholder="Enter site Url" formControlName="siteUrl">
+        </div>
+        <div class="form-group">
+            <label for="Description">Description</label>
+            <textarea cols="12" type="text" name="Description" class="form-control" placeholder="Enter Description" formControlName="description"></textarea>
         </div>
     </form>
 </ng-template>
