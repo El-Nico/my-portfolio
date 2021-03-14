@@ -139,7 +139,7 @@ export class AdminComponent implements OnInit {
   }
 
   assignTech() {
-    console.log(this.currentItem.techs)
+    // console.log(this.currentItem.techs)
     return this.currentItem.techs.map((el: any) => {
       return { 'type': el.type, 'tech': el.tech, 'iconHTML': !el.iconHTML ? null : el.iconHTML }
     })
@@ -182,7 +182,7 @@ export class AdminComponent implements OnInit {
       )
       .subscribe(url => {
         if (url) {
-          console.log(url);
+          // console.log(url);
         }
       });
   }

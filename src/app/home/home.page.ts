@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-// import { Observable } from 'rxjs';
-// import {map} from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { SharedService } from '../shared/shared.service';
 
 
 
@@ -21,14 +19,17 @@ export class HomePage implements OnInit{
  currentText="";
 
   constructor(
-    // private afs: AngularFirestore,
-    private router: Router
+    private sharedService: SharedService
   ) {
     
   }
 
   ngOnInit(): void {
     this.typeWriter("",3000,0, false);
+  }
+
+  ionViewWillEnter(){
+    this.toSection(this.sharedService.getDefaultScroll())
   }
 
   toSection(sectionId){

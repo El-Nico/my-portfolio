@@ -1,10 +1,11 @@
 import { ElementRef, HostListener, ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { fromEvent, Observable } from 'rxjs';
 import { map, distinctUntilChanged } from 'rxjs/operators';
 import { WorkItem } from '../home/work/work.component';
+import { SharedService } from '../shared/shared.service';
 
 @Component({
   selector: 'app-project-detail',
@@ -33,7 +34,9 @@ export class ProjectDetailPage implements OnInit {
   @ViewChild('onScroll', { static: true }) el: ElementRef;
   constructor(
     private activatedRoute: ActivatedRoute,
-    private afs: AngularFirestore
+    private afs: AngularFirestore,
+    private router: Router,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit() {
@@ -75,4 +78,8 @@ export class ProjectDetailPage implements OnInit {
     }, 10000)
   }
 
+  toSection(section:string){
+    this.sharedService.setDefaultScroll(section);
+    this.router.navigateByUrl("/");
+  }
 }

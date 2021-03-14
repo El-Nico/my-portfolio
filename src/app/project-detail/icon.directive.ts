@@ -19,7 +19,7 @@ export class IconDirective implements OnInit {
       let numberIcon = this.appIcon.match(/<\/ion-icon>/g)
       const id = this.el.nativeElement.id
       document.getElementById(id).innerHTML = this.appIcon
-      if (techArray.length !== numberIcon.length) {
+      if (numberIcon && techArray.length !== numberIcon.length) {
         techArray.forEach((el) => {
           if (el.toLowerCase().includes('type')) {
             var node = document.createElement("span");

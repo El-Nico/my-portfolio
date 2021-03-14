@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 
-import * as firebase from 'firebase'
 
 @Component({
   selector: 'app-contact',
@@ -9,25 +9,17 @@ import * as firebase from 'firebase'
 })
 export class ContactComponent implements OnInit {
 
-  contactModel = {
-    name: "",
-    subject: "",
-    email: "",
-    phoneNumber: "",
-    message: ""
-  }
   constructor() { }
 
   ngOnInit() { }
 
-  onSubmit() {
-    console.log(this.contactModel)
-    const sendEmail = firebase.functions().httpsCallable('sendEmail');
-    sendEmail(this.contactModel).then(res => {
-      if(res.data){
-        alert("message sent!");
-      }
-    });
+  onSubmit(e) {
+    emailjs.sendForm('portfolio_contact_servic', 'contact_form', e.target as HTMLFormElement, 'user_DR2HeUChM4rTXv0GdHL3q')
+      .then((result: EmailJSResponseStatus) => {
+        // console.log(result.text);
+        window.location.reload();
+      }, (error) => {
+        // console.log(error.text);
+      });
   }
-
 }
